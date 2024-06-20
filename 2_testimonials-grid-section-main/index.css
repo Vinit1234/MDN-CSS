@@ -1,0 +1,193 @@
+/* **{
+ border: 1px solid red;
+} */
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    color: rgb(184, 183, 183);
+}
+
+.container {
+    /* width: 100%; */
+    background-color: aliceblue;
+    padding: 5%;
+}
+
+.card {
+    border-radius: 10px;
+    /* padding: 10%; */
+    padding: 2em;
+}
+
+.card+.card {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.quote-card {
+    background-image: url(images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position: 95% 0%; /*left, top*/
+    background-size: 32%;
+}
+
+.profile-details {
+    width: 50%;
+    padding: 10px;
+    display: flex;
+
+}
+
+.profile-img {
+    /* width: 20%; */
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.profile-fields {
+    flex-basis: 200px;
+    margin-left: 1rem;
+}
+
+.profile-fields>p {
+    margin: 0;
+}
+
+.profile-name {
+    font-size: 1.2rem;
+}
+
+.bg-clr-purple {
+    background-color: rgb(113, 71, 181);
+}
+
+.bg-clr-gray {
+    background-color: rgb(68, 66, 94);
+}
+
+.bg-clr-dark-blue {
+    background-color: rgb(9, 25, 43);
+}
+
+.font-white {
+    color: white;
+}
+
+.font-gray {
+    color: gray;
+}
+
+
+.border-purple {
+    border: 0.2rem solid rgb(151, 104, 227);
+}
+
+.white-card {
+    background-color: rgb(248, 246, 244);
+}
+
+.white-card .profile-name,
+.white-card>h2 {
+    color: rgb(68, 66, 94);
+}
+
+
+@media screen and (min-width:900px) {
+
+    .card + .card{
+        margin: 0;
+    }
+
+    .container {
+        display: flex;
+        gap: 1em;
+
+    }
+
+    .quote-card{
+        background-size: auto;
+    }
+
+    .main-col {
+        width: 800px;
+        flex-grow: 1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+
+    .main-col p{
+        /* font-size: clamp(0.5rem,19cqi,1.2rem); */
+    }
+
+    .side-col {
+        width: 300px;
+        height: auto;
+        /* border: 1px solid red; */
+    }
+    
+    #main-col-card-1{
+        width:400px;
+        min-height:100px;
+        flex-grow: 2;
+        /* flex-shrink: 0; */
+    }
+
+    #main-col-card-2{
+        width:250px;
+        min-height:100px;
+        flex-grow: 1;
+        /* flex-shrink: 3; */
+    }
+    #main-col-card-3{
+        width:250px;
+        min-height:100px;
+        flex-grow: 1;
+        /* flex-shrink: 3; */
+
+    }
+    #main-col-card-4{
+        width:300px;
+        min-height:100px;
+        flex-grow: 2;
+    }
+
+    #side-col-card{
+        height: 100%;
+        padding: 0 1em 0 1em;
+    }
+
+    h2{
+        font-size: 1.2rem;
+    }
+
+    p{
+        font-size: 0.8rem;
+    }
+
+    
+}
+
+
+
+/* 
+Learnings:
+
+1. Content inside containers can overflow if you don't specify containers'
+    width and height.
+
+2. flex-grow and flex-shrink won't work if you don't 
+    specify containers' width.
+
+
+
+
+
+
+*/

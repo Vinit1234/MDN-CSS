@@ -1,0 +1,102 @@
+*{
+    box-sizing: border-box;
+    /* margin: 0;
+    padding: 0; */
+}
+
+body{
+    padding: 1rem;
+}
+
+
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+a{
+    color:black;
+}
+
+nav>ul>li a{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav>ul>li{
+    background-color: rgb(227, 246, 239);
+    border: 1px solid rgb(6, 147, 207);
+    padding: 0.5rem;
+}
+
+article{
+    background-color: rgb(179, 214, 227);
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+aside{
+    background-color: rgb(227, 246, 239);
+    padding: 0.5rem;
+
+}
+
+/*==mobile-first css================  */
+/* Finished in 15mins */
+
+@media screen and (min-width:800px) {
+    /* body{
+
+        background-color: yellow;
+    } */
+    /* main{
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+    } */
+    main{
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    section{
+        /* max-width: 60%; */
+        flex: 3;
+        min-width: 70%;
+
+    }
+
+    article{
+        /* display: inline-block;
+        max-width: 15%; */
+        flex: 1;
+        margin-bottom: 0;
+    }
+
+    aside{
+        /* max-width: 25%; */
+        flex: 2;
+        min-width: 40%;
+    }
+
+}
+
+@media screen and (min-width:1200px) {
+    main{
+        /* flex-wrap: wrap; */
+    }
+    section{
+        /* display: grid;
+        grid-template-columns: 2fr 1fr; */
+        /* flex-basis: 70%; */
+        min-width: 50%;
+    }
+    aside{
+        /* align-self: 3fr; */
+        /* flex: 2; */
+        min-width:25%;
+    }
+
+}
+
+/* Finished in 1.5hrs Weakness: setting uneven sections using flexbox in layout designing. */

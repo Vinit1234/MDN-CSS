@@ -1,0 +1,52 @@
+* {
+    /* border: 1px solid black; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card {
+    margin: 2em auto;
+    width: 350px;
+    background-color: rgb(232, 10, 10);
+    border-radius: 15px;
+    border: 2px solid black;
+}
+
+.name-section {
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 0.8rem;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    background-color: rgb(141, 15, 15);
+    color: white;
+}
+
+.info-section li {
+    /* padding-left: 0.8rem; */
+}
+
+.info {
+    display: inline-block;
+    list-style: none;
+    padding: 1rem 0 0 0.8rem;
+}
+
+.img-wrapper {
+    max-width: 120px;
+    max-height: 120px;
+}
+
+img {
+    max-width: 100%;
+    /* object-fit: contain; */
+}
+
+.footer {
+    padding: 0.8rem;
+}

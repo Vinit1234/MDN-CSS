@@ -1,0 +1,1210 @@
+/* 
+
+https://developer.mozilla.org/en-US/docs/Learn/CSS
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook
+
+Icons for links:
+https://icons8.com/icon/741/external-link
+*/
+
+/* calc() */
+
+/* 
+Revise:
+
+box model
+responsive images
+Cascade, specificity, and inheritance
+Cascade layers
+
+
+## Standards 
+Ref: https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background
+
+
+(atleast)
+line-height: 1.5rem
+letter-spacing: 2px or 0.12rem
+word-spacing: 0.16rem
+
+
+# Background 
+  ref: https://developer.mozilla.org/en-US/docs/Web/CSS/background-image
+  ref: https://css-tricks.com/css-basics-using-multiple-backgrounds/
+
+## Cascading Layers:
+Ref: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers
+
+## Margin collapsing:
+Ref: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing
+
+
+Decode this:
+https://developer.mozilla.org/en-US/play
+
+
+# Text Directions
+Ref: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Handling_different_text_directions
+
+
+#Tables:
+Ref: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_tables
+
+
+#CSS Styling text
+    https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/ 
+  
+    >> Web safe fonts:
+    https://www.cssfontstack.com/
+
+
+    >> Free fonts:
+      https://www.fontsquirrel.com/
+      https://everythingfonts.com/
+      https://www.dafont.com/
+
+   >> Free fonts online:
+      https://fonts.google.com/
+
+
+## Grid Layout
+  Ref: https://www.youtube.com/watch?v=EiNiSFIPIQE
+  Ref: https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html
+  Ref: https://cssgridgarden.com/
+  Ref: https://css-tricks.com/snippets/css/complete-guide-grid/
+
+*/
+
+.box {
+  padding: 10px;
+  width: calc(90% - 30px);
+  /* 90% of the containing block width, minus 30 pixels*/
+  background-color: rebeccapurple;
+  color: white;
+}
+
+/* imports a stylesheet into another CSS stylesheet */
+@import "styles2.css";
+
+/* The transform CSS property lets you rotate, scale, skew, or translate an element.  */
+
+/* background 
+  ref: https://developer.mozilla.org/en-US/docs/Web/CSS/background-image
+  ref: https://css-tricks.com/css-basics-using-multiple-backgrounds/
+*/
+body {
+  background-image: url("../../media/examples/lizard.png");
+
+}
+
+/* url(background-image, background-for background image) */
+body {
+  background-image: url("../../media/examples/lizard.png"),
+    url("../../media/examples/star.png");
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+    url("../../media/examples/lizard.png");
+}
+
+
+/* background-size : cover/contain 
+
+cover — the browser will make the image just large enough so that it completely covers the box area while still retaining
+        its aspect ratio. 
+        
+        In this case, part of the image is likely to end up outside the box.
+
+contain — the browser will make the image the right size to fit inside the box. 
+          
+          In this case, you may end up with gaps on either side or on the top and bottom of the image, if the aspect ratio of the image is different from that of the box.
+
+Suppose background image has length units set to size it inside the box. You can see this has distorted the image.
+Try the following.
+
+- Change the length units used to modify the size of the background.
+- Remove the length units and see what happens when you use background-size: cover or background-size: contain.
+- If your image is smaller than the box, you can change the value of background-repeat to repeat the image.
+
+*/
+
+.box {
+  background-image: url(balloons.jpg);
+  background-repeat: no-repeat;
+  background-size: 100px 10em;
+}
+
+
+.box {
+  background-image: url(star.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.box {
+  background-image: url(star.png);
+  background-repeat: no-repeat;
+  background-position: top 20px right 10px;
+}
+
+
+
+
+/* ---------------------------------------------------------- */
+
+/* Cascading */
+/* 
+  
+Ref: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers
+
+Cascade is a set of rules and a process for determining which styles are 
+applied whenever there's a conflict in styling.
+Multiple stylesheets can style the same page.
+
+The cascade works by giving every property or selector a weight.
+This weight is a combination of selector specificity, source order of stylesheet etc.
+There are three factors to consider, listed here in increasing order of importance. Later ones overrule earlier ones:
+
+    1. Source order:If you have more than one rule, all of which have exactly the same weight, then the one that comes
+                    last in the CSS will win.
+    
+    2. Specificity:
+    3. Importance
+
+
+    NOTE: !important has precedence over everything
+
+    Order of decreasing specificity:
+      Greater score greater precedence
+      Make the score using formula =>  ID - CLASS - TYPE - 1 if available 0 if not
+        Eg. #some_id .some_class{} => score = 110=2
+
+      1. ID > 
+      
+      2. class, attribute selector ([type="radio"]),  pseudo-classes (:hover, :nth-of-type(3n), and :required) >
+      
+      3. type (p, h1 etc. and pseudo-elements like ::before, ::placeholder, and all other selectors with double-colon notation. )
+
+      
+      *** From here on, selectors do not impact the specificity weight value.
+      
+      4.  universal selector (*) and the pseudo-class :where() and its parameters
+          Combinators, such as +, >, ~, " ", and ||
+          Like nesting, the :is(), :has(), and negation (:not()) pseudo-classes themselves add no weight.
+
+
+    Eg.
+      [type="password"],
+      input:focus,
+      :root #myApp input:required 
+      {
+        color: blue;
+      }
+
+      [type="password"]             //  0-1-0
+      input:focus                   //+ 0-1-1
+      :root #myApp input:required   //+ 1-0-0
+                                    //= 1-2-1
+
+      Score = 121 =4 when the password has focus (one ID, two pseudo-classes, and one element type.)
+  and Score = 120 = 3 when not in focus ie, not selected
+
+            First:
+      NOTE: compare ID column with ID only (111> 100 > 050 > 044> 010> 004)
+            compare class column with class only  (020>010>000)
+            compare type with type only   (004>001>000)
+
+Some examples:
+
+      #myElement {
+        color: yellow; // 1-0-0 
+        }
+
+      #myApp [id="myElement"] {
+      color: green; // 1-1-0  - WINS!!
+      }
+
+-------------------------------------------------------
+
+      :root input {
+            color: green; // 0-1-1 - WINS because CLASS column is greater
+            }
+
+      html body main input {
+            color: yellow; // 0-0-4 
+      }
+
+-------------------------------------------------------
+      input.myClass {
+        color: yellow; // 0-1-1 
+      }
+      :root input {
+        color: green; // 0-1-1 WINS because it comes later
+      }
+
+-------------------------------------------------------
+      p {
+        // 0-0-1
+      }
+      :is(p) {
+        // 0-0-1
+      }
+
+      h2:nth-last-of-type(n + 2) {
+        // 0-1-1
+      }
+      h2:has(~ h2) {
+        // 0-0-2 
+      }
+
+      div.outer p {
+        // 0-1-2
+      }
+      div:not(.inner) p {
+        // 0-1-2
+      }
+-------------------------------------------------------
+/* 1. specificity: 1-0-1 */
+#outer a {
+  background-color: red;
+}
+
+/* 2. specificity: 2-0-1 */
+#outer #inner a {
+  background-color: blue;
+}
+
+/* 3. specificity: 1-0-4 */
+#outer div ul li a {
+  color: yellow;
+}
+
+/* 4. specificity: 1-1-3 */
+#outer div ul .nav a {
+  color: white;
+}
+
+/* 5. specificity: 0-2-4 */
+div div li:nth-child(2) a:hover {
+  border: 10px solid black;
+}
+
+/* 6. specificity: 0-2-3 */
+div li:nth-child(2) a:hover {
+  border: 10px dashed black;
+}
+
+/* 7. specificity: 0-3-3 */
+div div .nav:nth-child(2) a:hover {
+  border: 10px double black;
+}
+
+a {
+  display: inline-block;
+  line-height: 40px;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* ---------------------------------------- */
+
+/* This means Inner content width =350px and inner content height = 150px
+   if box-sizing: border-box is not applied */
+.box {
+  width: 350px;
+  height: 150px;
+}
+
+
+/* To use the alternative box model for all of your elements (which is a common choice among developers), set the box-sizing property on the <html> element and set all other elements to inherit that value: */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+
+/* Margin collapsing:
+Ref: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing
+
+Depending on whether two elements whose margins touch have positive or negative margins, the results will be different:
+
+  - Two positive margins will combine to become one margin. Its size will be equal to the largest individual margin.
+  - Two negative margins will collapse and the smallest (furthest from zero) value will be used.
+  - If one margin is negative, its value will be subtracted from the total. */
+
+/* ---------------------------------------------- */
+
+.box {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: black;
+}
+
+.box {
+  border-top-right-radius: 1em 10%;
+}
+
+/* Decode this:
+https://developer.mozilla.org/en-US/play
+*/
+
+div {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+  align-items: center;
+}
+
+p+p {
+  columns: 3;
+  column-gap: 20px;
+  column-rule: double 7px;
+  border-color: #000000;
+}
+
+p+p {
+  columns: 3;
+  column-gap: 20px;
+  column-rule: double 7px;
+  border-color: #000000;
+}
+
+
+
+
+/* https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Test_your_skills_backgrounds_and_borders
+Task -2 solution: */
+
+.box {
+
+  /*
+  Give the box a 5px lightblue border and round the top left corner 20px and the bottom right corner 40px.
+ */
+
+  border: 5px solid lightblue;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 40px;
+
+
+}
+
+h2 {
+
+  /*
+  The heading uses the star.png image as a background image, with a single centered star on the left and a repeating pattern of stars on the right.
+  Make sure that the heading text does not overlay the image, and that it is centered — you will need to use techniques learned in previous lessons to achieve this.
+  */
+  background-image: url(star.png), url(star.png);
+  background-repeat: no-repeat, repeat-y;
+  background-position: center left,
+    right;
+  text-align: center;
+
+}
+
+/* ----------------------------------------------------- */
+
+
+/*  
+  Ref: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Handling_different_text_directions
+
+  A writing mode in CSS refers to whether the text is running horizontally or vertically.
+
+  The three possible values for the writing-mode property are:
+    horizontal-tb: Top-to-bottom block flow direction. Sentences run horizontally.
+    vertical-rl: Right-to-left block flow direction. Sentences run vertically.
+    vertical-lr: Left-to-right block flow direction. Sentences run vertically.
+  */
+h1 {
+  writing-mode: vertical-rl;
+}
+
+/* In vertical writing mode, if you want its container to accomodate text's width and height
+use inline-size and block-size respectively
+
+The following logical properties will activate only when the element is
+has writing-mode property given to it.
+
+AKA logical properties for horizontal-tb ( for, vertical width=block and height=inline ):
+width = inline-size
+height = block-size
+
+top = block-start
+bottom = block-end
+
+left = inline-start
+right= inline-end
+
+Hence similarly:
+
+margin-top = margin-block-start
+margin-bottom = margin-block-end
+margin-left = margin-inline-start
+margin-right= margin-inline-end
+
+
+*/
+
+.box {
+  inline-size: 150px;
+}
+
+.horizontal {
+  writing-mode: horizontal-tb;
+}
+
+.vertical {
+  writing-mode: vertical-rl;
+}
+
+/* ------------------------------- */
+/* 
+
+NOTE: If you encounter a box where content is overlaying other content on the page in legacy applications, you will now recognize that this happens with overflow. Ideally, you will refactor the layout to not rely on fixed-height containers.
+
+When developing a site, always keep overflow in mind. Test designs with large and small amounts of content. Increase and decrease font sizes by at least two increments. Ensure your CSS is robust. Changing overflow values to hide content or to add scrollbars is reserved for a few select use cases (for example, where you intend to have a scrolling box).
+
+*/
+
+/* Task: In this task, we want you to move the background image so that it is centered horizontally and is 20% from the top of the box. */
+.box {
+  background-image: url(star.png);
+  background-repeat: no-repeat;
+  background-position: center top 20%;
+}
+
+/* Avoid overflow by:
+  overflow: hidden/scroll;
+  overflow-x/overflow-y: auto/scroll;
+  min-width/min-height: 100px;
+*/
+
+/* Avoid over-stretching of images:
+  max-width:100%;
+
+*/
+
+
+/* The value cover, which sizes the image down, maintaining the aspect ratio so that it neatly fills the box. As the aspect ratio is maintained, some parts of the image will be cropped by the box.
+
+object-fit: cover; //fills box, maintain aspect ratio, crops extra img
+object-fit: fill;  // fills box, doesnt maintain aspect ratio, may stretch img
+object-fit: contain; // will not fill the box if size is different than container, extra spaces are left. 
+
+*/
+
+img {
+  object-fit: cover;
+}
+
+img {
+  object-fit: contain;
+}
+
+/* NOTE: For consistency, it is a good idea to set margins and padding to 0 on all elements, then add these back in when styling particular controls
+
+*/
+
+/* Ref: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Images_tasks#task_1
+
+
+Task1: In this task, you have an image that is overflowing the box. We want the image to scale down to fit inside the box without any extra white space, but we do not mind if some part of the image is cropped.
+
+img{}
+Solution: as follows:
+*/
+.box {
+  width: 200px;
+  height: 150px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ----------------------------------- */
+
+/* 
+
+Tables:
+Ref: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_tables
+
+*/
+
+/* spacing */
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid purple;
+}
+
+/* Set width for each column */
+thead th:nth-child(1) {
+  width: 30%;
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 35%;
+}
+
+th,
+td {
+  padding: 20px;
+}
+
+
+/* 
+
+NOTE: 
+
+1. With table-layout: fixed, you can size your columns according to the width of their headings, and then deal with their content as appropriate. This is why we've selected the four different headings with the thead th:nth-child(n) (:nth-child) selector ("Select the n-th child that is a <th> element in a sequence, inside a <thead> element") and given them set percentage widths. The entire column width follows the width of its heading, making for a nice way to size your table columns. 
+
+2. A border-collapse value of collapse is standard best practice for any table styling effort.
+
+3.  Put a border around the whole table
+
+4.  Set some padding on the <th> and <td> elements
+
+5. Put some letter-spacing on the headings and cells, as we feel it aids readability. 
+
+We've center-aligned the text in the table cells inside the <tbody> so that they line up with the headings. By default, cells are given a text-align value of left, and headings are given a value of center, but generally it looks better to have the alignments set the same for both. The default bold weight on the heading fonts is enough to differentiate their look.
+We've right-aligned the heading inside the <tfoot> so that it is visually associated better with its data point.
+
+
+*/
+
+
+/* Graphics and colors */
+
+thead,
+tfoot {
+  background: url(leopardskin.jpg);
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+thead th,
+tfoot th,
+tfoot td {
+  background: linear-gradient(to bottom, rgb(0 0 0 / 10%), rgb(0 0 0 / 50%));
+  border: 3px solid purple;
+}
+
+/* 
+Ref: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS#understanding_the_box_model
+
+
+## Debugging problems in CSS
+
+1) "DevTools" can be a great help when solving CSS problems, so when you find yourself in a situation where CSS isn't behaving as you expect, how should you go about solving it? The following steps should help.
+
+2)Take a "step back" from the problem
+Any coding problem can be frustrating, especially CSS problems because you often don't get an error message to search for online to help with finding a solution. If you are becoming frustrated, take a step away from the issue for a while — go for a walk, grab a drink, chat to a co-worker, or work on some other thing for a while. Sometimes the solution magically appears when you stop thinking about the problem, and even if not, working on it when feeling refreshed will be much easier.
+
+
+3) Run your HTML and CSS through a "validator", to pick up and fix any errors:
+
+ 1. CSS validator:  https://jigsaw.w3.org/css-validator/
+ 2. HTML validator: https://validator.w3.org/
+
+
+4) "Browser incompatibility". Browsers ignore CSS they don't understand. If the property or value you are using is not supported by the browser you are testing in then nothing will break, but that CSS won't be applied. DevTools will generally highlight unsupported properties and values in some way. 
+You can also take a look at the Browser compatibility tables at the bottom of each property page on MDN.
+
+5) Check devtools "if something else overriding your CSS".
+
+6) Make a "reduced test case" of the problem.
+    A reduced test case is a code example that demonstrates the problem in the simplest possible way, with unrelated surrounding content and styling removed. This will often mean taking the problematic code out of your layout to make a small example which only shows that code or feature.
+
+To create a reduced test case:
+
+
+      1. If your markup is dynamically generated — for example via a CMS — make a static version of the output that shows the problem. A code sharing site like CodePen is useful for hosting reduced test cases, as then they are accessible online and you can easily share them with colleagues. You could start by doing View Source on the page and copying the HTML into CodePen, then grab any relevant CSS and JavaScript and include it too. After that, you can check whether the issue is still evident.
+
+      2. If removing the JavaScript does not make the issue go away, don't include the JavaScript. If removing the JavaScript does make the issue go away, then remove as much JavaScript as you can, leaving in whatever causes the issue.
+
+      3. Remove any HTML that does not contribute to the issue. Remove components or even main elements of the layout. Again, try to get down to the smallest amount of code that still shows the issue.
+
+      4. Remove any CSS that doesn't impact the issue.
+
+      NOTE: It is worth adding some comments to your code as you discover things.
+            
+            Even the most experienced of us sometimes find ourselves wondering what on earth is going on. Taking a methodical approach, making a reduced test case, and explaining the issue to someone else will usually result in a fix being found.
+
+
+*/
+
+
+/* 
+Ref: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing
+
+
+## Organizing your CSS
+
+1. Check for team's coding style/.
+If you are working with a team on an existing project, the first thing to check is whether the project has an existing style guide for CSS. The team style guide should always win over your own personal preferences.
+
+2.A good tip is to add a block of comments between logical sections in your stylesheet too, to help locate different sections quickly when scanning it, or even to give you something to search for to jump right into that part of the CSS. 
+Example as follows:
+*/
+
+/* || General styles */
+
+/* … */
+
+/* || Typography */
+
+/* … */
+
+/* || Header and Main Navigation */
+
+/* … */
+
+/* ------------------- */
+
+
+
+/* 
+
+2. contd.
+  
+Comment the things where you made a particular decision for a reason.
+You may have used a CSS property in a specific way to get around older browser incompatibilities, for example:
+*/
+
+.box {
+  background-color: red;
+  /* fallback for older browsers that don't support gradients */
+  background-image: linear-gradient(to right, #ff0000, #aa0000);
+}
+
+
+/* 
+
+3.  Have all of the common styling first in the stylesheet. 
+    This means all of the styles which will generally apply unless you do 
+    something special with that element. 
+Eg.
+*/
+
+/* || GENERAL STYLES */
+
+body {
+  /* … */
+}
+
+h1,
+h2,
+h3,
+h4 {
+  /* … */
+}
+
+ul {
+  /* … */
+}
+
+blockquote {
+  /* … */
+}
+
+/* ---------------*/
+
+/* 
+
+4. After this section, we could define a few utility classes, for example, a class that removes the default list style for lists we're going to display as flex items or in some other way. If you have a few styling choices you know you will want to apply to lots of different elements, they can be put in this section.
+
+*/
+
+/* || UTILITIES */
+
+.nobullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* … */
+
+
+/* 
+5. Then we can add everything that is used sitewide. That might be things like the basic page layout, the header, navigation styling, and so on.
+
+*/
+
+/* || SITEWIDE */
+
+.main-nav {
+  /* … */
+}
+
+.logo {
+  /* … */
+}
+
+/* 5. Avoid overly-specific selectors
+If you create very specific selectors, you will often find that you need to duplicate chunks of your CSS to apply the same rules to another element. For example, you might have something like the selector below, which applies the rule to a <p> with a class of box inside an <article> with a class of main. */
+
+article.main p.box {
+  border: 1px solid #ccc;
+}
+
+/* If you then wanted to apply the same rules to something outside of main, or to something other than a <p>, you would have to add another selector to these rules or create a whole new ruleset. Instead, you could use the selector .box to apply your rule to any element that has the class box: */
+
+.box {
+  border: 1px solid #ccc;
+}
+
+/* There will be times when making something more specific makes sense; however, this will generally be an exception rather than usual practice. */
+
+
+/* 
+6. Break large stylesheets into multiple smaller ones
+In cases where you have very different styles for distinct parts of the site, you might want to have one stylesheet that includes all the global rules, as well as some smaller stylesheets that include the specific rules needed for those sections. You can link to multiple stylesheets from one page, and the normal rules of the cascade apply, with rules in stylesheets linked later coming after rules in stylesheets linked earlier.
+
+For example, we might have an online store as part of the site, with a lot of CSS used only for styling the product listings and forms needed for the store. It would make sense to have those things in a different stylesheet, only linked to on store pages.
+
+
+7. CSS methodologies
+
+Adopt one of the approaches already designed by the community and tested across many projects.
+  1. Object Oriented CSS
+  2. BEM (Block Element Modifier)
+
+  1. Object Oriented CSS
+
+      Separate your CSS into reusable objects, which can be used anywhere you need on your site. 
+      https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Media_objects
+
+      If you are not taking an OOCSS approach you might create a custom CSS for the different places this pattern is used, for example, by creating two classes, one called comment with a bunch of rules for the component parts, and another called list-item with almost the same rules as the comment class except for some tiny differences. The differences between these two components are the list-item has a bottom border, and images in comments have a border whereas list-item images do not.Eg:
+
+*/
+
+.comment {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.comment img {
+  border: 1px solid grey;
+}
+
+.comment .content {
+  font-size: 0.8rem;
+}
+
+.list-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  border-bottom: 1px solid grey;
+}
+
+.list-item .content {
+  font-size: 0.8rem;
+}
+
+
+/* 
+contd.
+
+In OOCSS, you would create one pattern called media that would have all of the common CSS for both patterns — a base class for things that are generally the shape of the media object. Then we'd add an additional class to deal with those tiny differences, thus extending that styling in specific ways.
+
+*/
+
+.media {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.media .content {
+  font-size: 0.8rem;
+}
+
+.comment img {
+  border: 1px solid grey;
+}
+
+.list-item {
+  border-bottom: 1px solid grey;
+}
+
+/* 
+
+In your HTML, the comment would need both the media and comment classes applied:
+
+<div class="media comment">
+  <img src="" alt="" />
+  <div class="content"></div>
+</div>
+
+The list-item would have media and list-item applied:
+
+<ul>
+  <li class="media list-item">
+    <img src="" alt="" />
+    <div class="content"></div>
+  </li>
+</ul>
+
+NOTE:  OOCSS approach is a good way to approach things in general.
+
+*/
+
+/* 
+  2. BEM (Block Element Modifier)
+Learn more at 
+https://css-tricks.com/bem-101/
+
+Preprocessing: https://sass-lang.com/guide/
+
+Using custom properties (CSS variables):
+  https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+
+Use Post-processing for optimization
+  https://cssnano.co/
+
+Media Objects:
+https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Media_objects
+
+
+
+*/
+
+
+/* 
+Note: CSS Variables do not work inside media queries and container queries. You can use the var() function in any part of a value in any property on an element. You cannot use var() for property names, selectors, or anything aside from property values, which means you can't use it in a media query or container query.
+
+*/
+
+
+/* ================================================  */
+/* CSS Styling text
+    https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/ 
+  
+  Web safe fonts:
+    https://www.cssfontstack.com/
+
+*/
+
+/* 
+ It represents a worst case scenario where the browser will try its best to provide a font that looks appropriate. serif, sans-serif, and monospace are quite predictable and should provide something reasonable. On the other hand, cursive and fantasy are less predictable and we recommend using them very carefully, testing as you go.
+
+ It is a good idea to provide a suitable generic font name at the end of the stack so that if none of the listed fonts are available, the browser can at least provide something approximately suitable. 
+
+ Name	            | Generic type	
+-----------------------------------
+Arial	            | sans-serif
+Courier New	      | monospace	
+Georgia	          | serif	
+Times New Roman	  | serif	
+Trebuchet MS	    | sans-serif	
+Verdana	          | sans-serif	
+
+*/
+
+p {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  text-shadow: x-offset y-offset blur-radius;
+
+  /* specifies how words should be hyphenated when text wraps across multiple lines. */
+  hyphens: auto;
+}
+
+
+/* Multiple shadows */
+
+h1 {
+  text-shadow:
+    1px 1px 1px red,
+    2px 2px 1px red;
+}
+
+
+html {
+  font-size: 10px;
+}
+
+h1 {
+  font-size: 5rem;
+  text-transform: capitalize;
+  text-shadow:
+    1px 1px 1px red,
+    2px 2px 1px red;
+  text-align: center;
+}
+
+h1+p {
+  font-weight: bold;
+}
+
+p {
+  font-size: 1.5rem;
+  color: red;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+
+
+/* The recommended line height is around 1.5 – 2 (double spaced). To set our lines of text to 1.6 times the height of the font, we'd use: */
+p {
+  line-height: 1.6;
+}
+
+
+p::first-line {
+  letter-spacing: 4px;
+  word-spacing: 4px;
+}
+
+
+/* Styling lists ========================================= */
+
+ol {
+  list-style-type: upper-roman;
+  list-style-position: inside;
+}
+
+ul {
+  list-style-image: url(star.svg);
+}
+
+ul {
+  padding-left: 2rem;
+  list-style-type: none;
+}
+
+ul li {
+  padding-left: 2rem;
+  background-image: url(star.svg);
+  background-position: 0 0;
+  background-size: 1.6rem 1.6rem;
+  background-repeat: no-repeat;
+}
+
+
+/* 
+<ol start="4">
+  <li>Toast pita, leave to cool, then slice down the edge.</li>
+  <li>
+    Fry the halloumi in a shallow, non-stick pan, until browned on both sides.
+  </li>
+  <li>Wash and chop the salad.</li>
+  <li>Fill pita with salad, hummus, and fried halloumi.</li>
+</ol>
+
+<ol start="4" reversed>
+  <li>Toast pita, leave to cool, then slice down the edge.</li>
+  <li>
+    Fry the halloumi in a shallow, non-stick pan, until browned on both sides.
+  </li>
+  <li>Wash and chop the salad.</li>
+  <li>Fill pita with salad, hummus, and fried halloumi.</li>
+</ol>
+
+<ol>
+  <li value="2">Toast pita, leave to cool, then slice down the edge.</li>
+  <li value="4">
+    Fry the halloumi in a shallow, non-stick pan, until browned on both sides.
+  </li>
+  <li value="6">Wash and chop the salad.</li>
+  <li value="8">Fill pita with salad, hummus, and fried halloumi.</li>
+</ol>
+
+
+
+*/
+
+/* =========================================== */
+/* Styling links */
+
+
+a {}
+
+a:link {}
+
+a:visited {}
+
+a:focus {}
+
+a:hover {}
+
+a:active {}
+
+
+/* NOTE:
+This order is important because link styles build on one another. For example, the styles in the first rule will apply to all the subsequent ones. When a link is activated, it's usually also hovered over. If you put these in the wrong order, and you're changing the same properties in each ruleset, things won't work as you expect. To remember the order, you could try using a mnemonic like LoVe Fears HAte. */
+
+body {
+  width: 300px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+}
+
+p {
+  line-height: 1.4;
+}
+
+a {
+  outline-color: transparent;
+}
+
+a:link {
+  color: #6900ff;
+}
+
+a:visited {
+  color: #a5c300;
+}
+
+a:focus {
+  text-decoration: none;
+  background: #bae498;
+}
+
+a:hover {
+  text-decoration: none;
+  background: #cdfeaa;
+}
+
+a:active {
+  background: #6900ff;
+  color: #cdfeaa;
+}
+
+
+/* We set the path to the image we want to insert, specify no-repeat so we only get one copy inserted, and then specify the position as 100% of the way to the right of the text content, and 0 pixels from the top. */
+
+/*  if the links have an href attribute with a value that begins with "http". */
+a[href^="http"] {
+  background: url("external-link-52.png") no-repeat 100% 0;
+
+  /* the size we want the background image to be shown */
+  background-size: 16px 16px;
+  padding-right: 19px;
+}
+
+
+
+
+
+
+/* Using links as buttons in navigation :
+  <nav class="container">
+    <a href="#">Home</a>
+    <a href="#">Pizza</a>
+    <a href="#">Music</a>
+    <a href="#">Wombats</a>
+    <a href="#">Finland</a>
+  </nav> */
+
+
+body,
+html {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  gap: 0.625%;
+}
+
+a {
+  flex: 1;
+  text-decoration: none;
+  outline-color: transparent;
+  text-align: center;
+  line-height: 3;
+  color: black;
+}
+
+a:link,
+a:visited,
+a:focus {
+  background: palegoldenrod;
+  color: black;
+}
+
+a:hover {
+  background: orange;
+}
+
+a:active {
+  background: darkred;
+  color: white;
+}
+
+
+
+
+/* =================================== */
+/* Web fonts */
+
+/* 
+Free fonts:
+  https://www.fontsquirrel.com/
+  https://everythingfonts.com/
+  https://www.dafont.com/
+
+Free fonts online:
+  https://fonts.google.com/
+
+*/
+
+/* First of all, you have a @font-face ruleset at the start of the CSS, 
+which specifies the font file(s) to download: */
+
+@font-face {
+  font-family: "myFont";
+  src: url("myFont.woff2");
+}
+
+
+/* Below this you use the font family name specified inside @font-face to apply your custom font to anything you like, as normal: */
+
+html {
+  font-family: "myFont", "Bitstream Vera Serif", serif;
+}
+
+/*NOTE:
+
+The order in which you list font files is important. If you provide the browser with a list of multiple font files to download, the browser will choose the first font file it's able to use. That's why the format you list first should be the preferred format — that is, WOFF2 — with the older formats listed after that. Browsers that don't understand one format will then fall back to the next format in the list.
+
+*/
+
+
+

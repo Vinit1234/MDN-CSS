@@ -1,0 +1,101 @@
+Ref: https://qr.ae/psDB2c
+
+
+To become a freelance front-end web developer, you will need a minimum set of skills to be able to create visually appealing and functional websites. Here are some essential skills you should have:
+
+1>> HTML (HyperText Markup Language): HTML is the foundation of any web page. You should have a good understanding of HTML to create the structure of a website.
+
+2>> CSS (Cascading Style Sheets): CSS is used to style the HTML elements and make the website visually appealing. Knowledge of CSS is essential for creating layouts, styling text, colors, and positioning elements on a webpage.
+
+3>> JavaScript: JavaScript is a programming language that allows you to add interactivity to a website. You should have a good understanding of JavaScript to create dynamic and interactive web pages.
+
+4>> Responsive Design: Understanding responsive design is crucial as it ensures that your websites look good on all devices and screen sizes. You should be able to create websites that adapt to different screen sizes using techniques like media queries and flexible layouts.
+
+5>> Version Control (e.g., Git): Version control systems like Git are essential for tracking changes in your code, collaborating with others, and managing different versions of your projects.
+
+6>> Basic Design Skills: While not mandatory, having basic design skills can be beneficial for a front-end developer. >> Understanding principles of design, typography, color theory, and user experience can help you create visually appealing and user-friendly websites.
+
+7>> Browser Developer Tools: Familiarity with browser developer tools (e.g., Chrome DevTools) is important for debugging code, testing website performance, and making sure your websites work correctly across different browsers.
+
+8>> CSS Preprocessing (e.g., SASS, LESS): Knowledge of CSS preprocessors like SASS or LESS can help you write more maintainable and organized CSS code.
+
+9>> Build Tools (e.g., Webpack, Gulp): Understanding build tools can streamline your workflow by automating tasks like compiling Sass to CSS, optimizing images, and bundling JavaScript files.
+
+10>> Basic SEO Principles: Having a basic understanding of SEO (Search Engine Optimization) can help you create websites that are search engine friendly and rank well in search engine results.
+
+These are some of the essential skills you should have to start a career as a freelance front-end web developer. As you gain experience, you may also want to explore frameworks like Bootstrap, React, or Vue.js to enhance your skill set and offer more advanced services to your clients.
+
+
+
+
+Requirements:
+
+    - ReactJS
+    - Asynchronous request handling
+    - AJAX and JavaScript Dom manipulation Techniques
+    - JavaScript build tools like grunt or gulp
+
+
+Core Web Vitals
+    1. LCP=Largest COntentful Paint
+    2. FID= First Input Delay
+    3. CLS = Cumulative Layout Shift
+
+
+
+## Full Stack:
+    1. HTML + CSS(2week) + Bootstrap OR Tailblocks +Tailwind(1 week)
+    2. Build basic aps: alarm, myntra, flipkart, Netflix
+    3. HTML + Express JS + Node JS + MongoDB(1month)
+    4. MongoDB Compass and Atlas
+    5. MySQL and Phpmyadmin
+    6. Prisma OR Mongoose(1month) Libraries for schemas (like JDBC)
+    7. ReactJS (1 month for frontend)
+    8. Next JS (like Express) (5 apps) + Typescript
+    9. Github + Github copilot or code llama
+    10. Deployment 
+            a. Droplet based ie, linux vpn based Deployment
+        OR  b. AWS
+        OR  c. Digital Ocean App platform (ene to end deployment from Github)
+        
+Pick up web designs from google and make frontend web pages.
+Use Bootstrap and Tailblocks for fast development
+
+
+Salary range: 3-4lpa > 
+              SDE-1= 10-12lpa > 
+              Renowned startups=> 10-12lpa > 
+              Dream companies => 20-25lpa
+              SDE2=> 50lpa to 80lpa
+
+Interview Rounds:
+1. Machine testing(1hr)
+    - clean code
+    - modular
+    - understandable
+    - bug free
+    - executable
+
+
+2. JS 
+    - internal concepts: event loop, promises, closures, hoistings
+
+3. Framework (React etc)
+    - React 
+    - benchmarking
+    - optimizing
+    -lazy loading
+    - broswers specific concepts: local storage, cookies, session storage, indexDB, web sockets wtc.
+
+4. System Design
+    - High level design 
+        - Netflix=> design, architecture; common issues and resolutions
+    - Security
+    - Performance improvement
+    - Networking
+    - Attacks
+
+5 DSA and problem solving
+
+Pagination
+DSA 

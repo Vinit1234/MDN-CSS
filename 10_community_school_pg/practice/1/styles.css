@@ -1,0 +1,102 @@
+* {
+    /* margin: 0;
+    padding: 0;*/
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.4rem;
+    padding: 0 5%;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.2rem;
+    line-height: 1.7rem;
+    font-weight: 500;
+}
+
+h1 {
+    text-align: center;
+    padding: 2rem;
+}
+
+h1,
+footer {
+    border-top: 5px solid rgb(160, 101, 96);
+    border-bottom: 5px solid rgb(160, 101, 96);
+}
+
+main {
+    display: flex;
+    gap: 2rem;
+}
+
+main>article {
+    flex: 2 1 2;
+    max-width: 50%;
+    /* display: inline-block; */
+}
+
+main>aside {
+    max-width: 25%;
+}
+
+aside li{
+    padding:0.5rem 0;
+}
+
+a {
+    color: rgb(160, 101, 96);
+
+}
+
+.article-links{
+    color:red;
+}
+
+.article-links:visited{
+    color:rgb(230, 0, 255);
+}
+
+.article-links:focus, .article-links:hover {
+    text-decoration: none;
+    background-color:  rgb(246, 251, 162);
+}
+
+.article-links:active{
+    color:brown;
+}
+
+
+
+
+ul{
+    list-style: none;
+}
+
+article>ul>li, aside>ul>li{
+    background-image: url(../image/icons8-hand-right-24.png);
+    background-repeat: no-repeat;
+    background-position:2px;
+    padding-left: 3.2rem;
+    line-height: 2.2rem;
+}
+
+nav>ul>li{
+    padding: 1.5rem 3rem;
+    border:1px solid rgb(160, 101, 96);
+    /* margin-bottom: 1rem; */
+    text-align: center;
+    
+    margin-block-start: 1.4rem;
+    margin-block-end: 1.4rem;
+}
+
+nav>ul>li>a {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.125rem;
+}
+
+footer{
+    font-size: 1.125rem;
+    padding: 1rem;
+}

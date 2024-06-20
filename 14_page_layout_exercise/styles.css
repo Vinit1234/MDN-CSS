@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    border:1px solid red;
+    width: 90%;
+    margin: 2em auto;
+    font:
+          1em/1.3 Arial,
+          Helvetica,
+          sans-serif;
+}
+
+nav> ul{
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    
+}
+
+nav> ul li{
+    flex: 1;
+    border: 2px solid skyblue;
+    padding: 0.6em;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+article{
+    display:grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap:20px;
+    margin-bottom: 1em;
+}
+
+article>aside{
+    background-color: rgb(206, 232, 243);
+    padding:1rem;
+    border: 2px solid skyblue;
+}
+
+
+
+
+

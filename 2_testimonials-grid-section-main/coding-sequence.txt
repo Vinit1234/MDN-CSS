@@ -1,0 +1,21 @@
+Steps breakdown on to build a website from the design:
+
+1. Start with mobile first design. Keep checking your outputs 
+on the specified size of mobile screen or less than 567px.
+(Start writing code without worrying about refactoring.)
+
+2. Start with layout implementation first. 
+Use dummy data first and finish the layout. 
+Use background colors, borders etc.
+Check if it is responsive for mobile screens.
+
+3. Now use media query for larger screens. Again start layout implementation.
+Check if it is responsive for larger screens. Now check if implementations
+for both the screens are working correctly. If not, fix them accordingly.
+
+4. Now complete the details for mobile screen first.
+Then complete the details for larger screens. Check for 
+responsive nature for both mobile and larger screens.
+
+5. Now go for refactoring - eliminate redundant code.
+And make the code cleaner.

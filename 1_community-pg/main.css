@@ -1,0 +1,100 @@
+/* 
+   Cream: #F8F6E3
+   Light Aqua : #97E7E1
+   Dark Aqua: #6AD4DD
+   Lime-green: #BFEA7C
+
+*/
+
+:root{
+    --cream-color: #f9f9ce;
+    --light-aqua-color: #71e0d9;
+    --dark-aqua-color: #45b1bb;
+    --lime-green-color: #95d927 ;
+}
+
+*{
+    /* border: 1px solid black; */
+}
+
+
+html{
+    margin:0;
+    box-sizing: border-box;
+
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1px;
+}
+
+.sub-container{
+    max-width: 70%;
+    margin: auto;
+    padding: 10%;
+}
+
+.intro{
+    background-color: var(--cream-color);
+    color: gray;
+    padding: 20px;
+}
+
+.intro>h2{
+    color: var(--dark-aqua-color);
+}
+
+.intro>h4{
+    color: var(--lime-green-color);
+}
+
+
+.sub-container-2{
+    display: flex;
+    /* align-items: stretch; */
+}
+
+.row{
+    width: 50%;
+    padding:5%;
+    color: white;
+
+}
+
+.subscription-container{
+    background-color: var(--dark-aqua-color);
+}
+
+.why-us-container{
+    background-color: var(--light-aqua-color);
+
+}
+
+.highlight{
+    font-size: x-large;
+    font-weight: 800;
+}
+
+
+
+button{
+    width: 80%;
+    height: 3em;
+    background-color: var(--lime-green-color);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    margin: 0 auto;
+    font-size: 1.3rem;
+}
+
+
+
+
+
+
+
+

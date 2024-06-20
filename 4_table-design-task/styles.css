@@ -1,0 +1,66 @@
+/* ref: https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Tables_tasks */
+
+table {
+    /* table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse; */
+    border: 3px solid purple;
+}
+
+/* 
+
+1. Add padding of 0.3em to the table headings and data and align them at the top of their cells.
+2. Align headings and data for columns containing numbers right.
+3. Align headings and data for columns containing text left.
+4. Add a 1px top and bottom solid border with the hex color #999, plus a 1px solid border of the same color above the footer.
+5. Remove the default spacing between the table elements borders to get the expected result.
+6. Stripe every odd row of the main table with the hex color #eee.
+
+Additional question:
+
+What can you do to make the table layout behave a bit more predictably? Think of how table columns are sized by default and how we can change this behavior to size the columns according to the width of their headings.
+Hint: scope=row/col
+*/
+
+
+/*
+Add padding of 0.3em to the table headings and data and align them at the top of their cells.
+Align headings and data for columns containing numbers right.
+*/
+th,
+td {
+    padding: 0.3em;
+}
+
+th:nth-child(3),
+td:nth-of-type(2) {
+    text-align: right
+}
+
+
+
+/*Align headings and data for columns containing text left.
+   Add a 1px top and bottom solid border with the hex color #999, plus a 1px solid border of the same color above the footer.
+   */
+tfoot th,
+tfoot td {
+    border-top: 1px solid #999;
+    /*border-bottom: 1px solid blue */
+}
+
+table {
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999
+}
+
+/*Remove the default spacing between the table elements borders to get the expected result.
+   Stripe every odd row of the main table with the hex color #eee.
+   
+   */
+table {
+    border-collapse: collapse;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: #eee;
+}

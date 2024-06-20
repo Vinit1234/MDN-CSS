@@ -1,0 +1,201 @@
+/* General setup */
+@font-face {
+  font-family: "andada";
+  src: url("fonts/andada-bold-webfont.woff2") format("woff2"),
+    url("fonts/andada-bold-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "courier-prime";
+  src: url("fonts/courier_prime-webfont.woff2") format("woff2"),
+    url("fonts/courier_prime-webfont.woff") format("woff");
+}
+
+:root {
+  font-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 1000px;
+  max-width: 1400px;
+  /* font-family: "andada", serif; */
+  font-family: "courier-prime", serif;
+  /* font-size: 10px; */
+}
+
+/* Layout */
+
+section {
+  float: left;
+  width: 50%;
+}
+
+aside {
+  float: left;
+  width: 30%;
+}
+
+nav {
+  float: left;
+  width: 20%;
+}
+
+footer {
+  clear: both;
+}
+
+header,
+section,
+aside,
+nav,
+footer {
+  padding: 20px;
+}
+
+/* header and footer */
+
+header,
+footer {
+  border-top: 5px solid #a66;
+  border-bottom: 5px solid #a66;
+}
+
+/* WRITE YOUR CODE BELOW HERE */
+
+/* Fonts===================== */
+
+h1,
+h2 {
+  font-family: "andada", serif;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+
+p {
+  font-size: 1.8rem;
+}
+
+li {
+  font-size: 1.8rem;
+}
+
+body {
+  line-height: 2.4rem;
+}
+
+
+section>h2+p {
+  text-indent: 20px;
+}
+
+
+
+/* Links===================== */
+
+li {
+  padding: 0.6rem;
+}
+
+a {
+  /* text-decoration: none; */
+  color: rgb(162 38 38);
+  outline: transparent;
+
+}
+
+a:link {
+  color: rgb(234 28 28);
+}
+
+a:visited {
+  color: rgb(150, 34, 34);
+}
+
+a:focus {
+  text-decoration: none;
+  background-color: rgb(251, 170, 170);
+  color: #fff;
+  background-color: #a66;
+}
+
+a:hover {
+  text-decoration: none;
+  background-color: rgb(248, 212, 212);
+
+}
+
+a:active {
+  /* text-decoration: underline; */
+  color: #fff;
+  background-color: #a66;
+}
+
+
+a[href^="http"] {
+  background: url(image/external-link-52.png) no-repeat 100% 0;
+  background-size: 14px 14px;
+  padding-right: 19px;
+}
+
+/* Lists================= */
+
+li {
+  line-height: 2.4rem;
+  margin-block-start: 1.2rem;
+  margin-block-end: 1.2rem;
+
+  /* Issue below: https://stackoverflow.com/questions/21427199/list-vertical-align-text-middle-with-list-style-image */
+  /* list-style-image: url(image/icons8-hand-right-24.png); */
+  list-style-type: none;
+  background-image: url(image/icons8-hand-right-24.png);
+  background-repeat: no-repeat;
+  /* line-height: 30px; */
+  padding-left: 3.2rem;
+  background-position: 2px;
+}
+
+nav {
+  /* background-color: #e49f9f; */
+}
+
+nav ul{
+  padding: 10px;
+  /* height:400px; */
+}
+
+nav ul li{
+  padding:3rem;
+  text-align: center;
+  background-image: none;
+  border: 1px solid #a66;
+}
+
+/* 
+Illegal: doesnt work
+
+nav li:focus{
+  background-color: #a66;
+} */
+
+nav ul li a{
+  text-decoration: none;
+  background-color: none;
+}
+
+nav li:hover {
+  background-color: rgb(248, 212, 212);
+}
