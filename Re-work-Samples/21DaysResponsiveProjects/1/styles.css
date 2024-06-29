@@ -1,0 +1,122 @@
+:root {
+  --accent: green;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* font-size: 1.2rem; */
+}
+
+header {
+  background-color: rgb(41, 41, 41);
+}
+.container {
+  color: white;
+  /* text-align: center; */
+  /* max-width: 50%; */
+  /* margin: 0 auto; */
+  /* padding:4em; */
+  /* font-size: 1.5rem; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 4rem 2rem; */
+  padding: 2rem 1rem;
+}
+
+h1 {
+  border: 4px solid white;
+  text-transform: uppercase;
+  /* letter-spacing: 0.8rem; */
+  letter-spacing: 0.2rem;
+  font-size: 1.2rem;
+  padding: 0.8em 0.5rem;
+  margin: 0;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* @media only screen and (min-width:600px){
+    .container{
+        max-width: 80%;
+        font-size: 1.5rem;
+    }
+
+    h1{
+        font-size: 3rem;
+        padding:1rem 2rem;
+        width:50%;
+    }
+}
+
+@media only screen and (min-width:1200px){
+    .container{
+        max-width: 60%;
+    }
+} */
+
+.card-container {
+  display: flex;
+  /* gap:1rem; */
+  justify-content: space-between;
+  padding: 2rem;
+  align-items: center;
+}
+
+.card {
+  border: 1px solid black;
+  max-width: 30%;
+  padding: 1rem;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  background-color: green;
+  color: white;
+  margin: 0 auto;
+  display: block;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .container{
+    padding: 4rem 2rem;
+  }
+
+  h1 {
+    font-size:2em;
+    padding: 0.8em 1em;
+    letter-spacing: 0.8rem;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+    h1{
+        font-size: 4rem;
+    }
+}
+
+
+/* Completed in 1hr 6minutes */
+
+/*  
+
+Challenges faced: 
+
+1. Flex reduces a lot of work of :
+    a. vertically aligning all child elements.
+    b. spacing between each element
+
+
+*/

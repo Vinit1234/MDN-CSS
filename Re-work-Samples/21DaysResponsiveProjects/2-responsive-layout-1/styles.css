@@ -1,0 +1,163 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    
+}
+
+body{
+    color: white;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.logo{
+    margin:0 auto;
+    border:1px solid red;
+}
+
+ul{
+    text-align: center;
+    list-style: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    /* padding: 1rem; */
+}
+
+
+.container{
+    padding:4rem;
+}
+
+nav{
+    background-color: rgb(7, 102, 102);
+    padding: 2rem;
+}
+
+nav>ul>li{
+    padding-bottom: 1rem;
+}
+
+nav>ul>li a{
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+.btn{
+    color: rgb(4, 57, 57);
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.sign-up-btn{
+    padding:0.5rem 1rem;
+    background-color: white;
+}
+
+header, main, aside{
+    /* font-size: 1.4rem; */
+    /* padding: 2rem 4rem; */
+    /* padding: 2rem; */
+}
+
+.intro{
+    background-color: rgb(4, 57, 57);
+}
+
+.intro-content h1{
+    font-size: 3rem;
+}
+
+.learn-btn{
+    display: block;
+    width: 250px;
+    padding: 1rem;
+    text-align: center;
+    background-color:  rgb(14, 194, 194);
+
+}
+
+.hdr-content p{
+    margin-bottom: 3rem;
+}
+
+.hero-img{
+    margin-top: 3rem;
+    max-width: 100%;
+}
+
+.cards{
+    /* background-color: rgb(7, 102, 102); */
+    /* color:white; */
+    /* padding: 1rem; */
+}
+
+.card{
+    background-color: rgb(7, 102, 102);
+    padding: 1rem;
+    text-align: center;
+}
+
+.info p{
+    color: black;
+}
+
+.info h2{
+    color: rgb(173, 50, 173);
+}
+
+
+@media only screen and (min-width:850px){
+
+    .logo{
+        margin:0;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav>ul>li {
+        padding: 1rem;
+    }
+
+
+    ul {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-basis: 70%;
+        align-items: center;
+    }
+
+    .move-right{
+        margin-left: auto;
+    }
+
+    .intro {
+        /* background-color: rgb(4, 57, 57); */
+        display: flex;
+        gap: 2rem;
+    }
+
+    .hero-img {
+        width: 32%;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    .two-col-flex{
+        display: flex;
+        gap:2rem;
+    }
+
+    .cards{
+        flex-basis: 50%;
+    }
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Challenge</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container navbar">
+        <div class="logo"><img src="img/logo.svg" alt="logo" /></div>
+        <nav>
+          <ul class="nav">
+            <li><a class="nav-link" href="#">Home</a></li>
+            <li><a class="nav-link" href="#">About</a></li>
+            <li><a class="nav-link" href="#">Contact</a></li>
+            <li class="shift-right">
+              <a class="nav-link" href="#">Sign in</a>
+            </li>
+            <li><a class="nav-link btn" href="#">Sign up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- ##### -->
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>Responsive layouts <span>don't have to be a struggle</span></h1>
+          <div class="hero-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque,
+              animi? Commodi, et voluptatem laborum esse error recusandae modi
+              numquam illum.
+            </p>
+            <a href="#" class="btn">I want to learn</a>
+          </div>
+        </div>
+      </section>
+      <!--  -->
+      <section class="beige-cards">
+        <div class="container h-cards cards">
+          <div class="card">
+            <h2>Mobile First</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
+              vero ut nisi. Reiciendis dolorum, earum eaque repellat nam iure
+              molestiae?
+            </p>
+          </div>
+          <div class="card">
+            <h2>Efficient</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
+              vero ut nisi. Reiciendis dolorum, earum eaque repellat nam iure
+              molestiae?
+            </p>
+          </div>
+          <div class="card">
+            <h2>Done right</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
+              vero ut nisi. Reiciendis dolorum, earum eaque repellat nam iure
+              molestiae?
+            </p>
+          </div>
+        </div>
+      </section>
+      <!--  -->
+
+      <!-- <section class=""> -->
+      <div>
+        <div class="container two-col">
+          <article>
+            <h2>It doesn't have to be so hard</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, quasi
+              facere impedit neque natus eum totam fuga vel accusamus aspernatur
+              eius. Ea alias aliquam est nobis eos assumenda officiis quas?
+            </p>
+            <div class="hero-img">
+              <img src="img/hero-img.jpg" alt="big image" />
+            </div>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Molestiae rem molestias asperiores libero sit vero debitis saepe
+              ex. Repudiandae architecto in vero ullam animi cumque saepe,
+              labore dolores omnis minus!
+            </p>
+          </article>
+
+          <aside>
+            <div class="v-cards cards">
+              <div class="card">
+                <h2>Break it down</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Delectus, iusto optio! Repellendus, maxime reprehenderit neque
+                  quasi voluptatem tenetur autem cupiditate.
+                </p>
+              </div>
+
+              <div class="card">
+                <h2>Work your way up</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Delectus, iusto optio! Repellendus, maxime reprehenderit neque
+                  quasi voluptatem tenetur autem cupiditate.
+                </p>
+              </div>
+
+              <div class="card">
+                <h2>Break it down</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Delectus, iusto optio! Repellendus, maxime reprehenderit neque
+                  quasi voluptatem tenetur autem cupiditate.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <!-- </section> -->
+    </main>
+
+    <!-- ##### -->
+    <footer>
+      <h2>Just scratching the surface</h2>
+      <div class="container ftr-outer-flex">
+        <div class="footer-content">
+          <h3>About our company</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta
+            fugiat cumque minus ipsa facere neque totam modi architecto adipisci
+            corrupti.
+          </p>
+        </div>
+        <!-- <div class="fter-inner-flex"> -->
+        <div class="ftr-links">
+          <h3>Getting Started</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="ftr-links">
+          <h3>Other things</h3>
+          <ul>
+            <li><a href="#">lorem</a></li>
+            <li><a href="#">ipsum</a></li>
+            <li><a href="#">dolor</a></li>
+            <li><a href="#">sit amet</a></li>
+          </ul>
+        </div>
+
+        <div class="ftr-links">
+          <h3>And more</h3>
+          <ul>
+            <li><a href="#">lorem</a></li>
+            <li><a href="#">ipsum</a></li>
+            <li><a href="#">dolor</a></li>
+            <li><a href="#">sit amet</a></li>
+          </ul>
+        </div>
+        <!-- </div> -->
+      </div>
+    </footer>
+  </body>
+</html>
+
+<!-- HTML => completed in 30 mins -->
+
+<!-- CS major setbacks:
+  
+- should flex be applied on mobile screen or not
+- margin collapse issue
+- selecting div for setting container class
+- making responsive image -> deciding with or w/o div
+- making btn inline-block to avoid overflow from container
+- avoiding content overflow from container  
+    (solution: give the container padding)
+- apply width along with max-width to maintain exact resolution,
+  responsiveness (see .container)
+
+
+  HTML validation warning:
+  Section(line 71) lacks heading. Consider using h2-h6 elements to add identifying headings to all sections, 
+  or else use a div element instead for any cases where no heading is needed.
+-->
